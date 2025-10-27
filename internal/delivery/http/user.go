@@ -23,11 +23,14 @@ func (h *UserHandler) Register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err := h.userService.Register(req.Name, req.Email)
+	user, err := h.userService.Register(req.Name, req.Email)
+
 	if err != nil {
 		http.Error(w, "failed to register user", http.StatusInternalServerError)
 		return
 	}
 
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(user)
 }

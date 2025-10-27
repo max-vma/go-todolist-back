@@ -13,7 +13,7 @@ func NewUserService(userRepo repositories.UserRepository) *UserService {
 	return &UserService{userRepo: userRepo}
 }
 
-func (s *UserService) Register(name, email string) error {
+func (s *UserService) Register(name, email string) (*domain.User, error) {
 	user := &domain.User{Name: name, Email: email}
 
 	return s.userRepo.Create(user)
