@@ -4,7 +4,8 @@ import "time"
 
 type List struct {
 	ID        int64
-	title     string
+	Title     string
+	User_ID   int64
 	Archived  bool
 	CreatedAt time.Time
 }

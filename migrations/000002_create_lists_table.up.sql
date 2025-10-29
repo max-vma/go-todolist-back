@@ -1,0 +1,9 @@
+CREATE TABLE lists (
+  id SERIAL PRIMARY KEY,
+  title     VARCHAR,
+	user_id   INT NOT NULL,
+	archived  BOOLEAN DEFAULT FALSE,
+	created_at TIMESTAMP DEFAULT NOW() ,
+	updated_at TIMESTAMP DEFAULT NOW(),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
