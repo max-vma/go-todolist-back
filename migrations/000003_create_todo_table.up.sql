@@ -1,0 +1,9 @@
+CREATE TABLE todos (
+  id SERIAL PRIMARY KEY,
+  list_id     INT NOT NULL,
+	checked  BOOLEAN DEFAULT FALSE,
+  text TEXT,
+	created_at TIMESTAMP DEFAULT NOW(),
+	updated_at TIMESTAMP DEFAULT NOW(),
+  FOREIGN KEY (list_id) REFERENCES lists(id) ON DELETE CASCADE
+);

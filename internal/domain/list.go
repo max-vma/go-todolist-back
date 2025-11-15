@@ -8,4 +8,5 @@ type List struct {
 	User_ID   int64
 	Archived  bool
 	CreatedAt time.Time
+	UpdatedAt time.Time
 }

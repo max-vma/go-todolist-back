@@ -8,4 +8,5 @@ type Todo struct {
 	Text      string
 	Checked   bool
 	CreatedAt time.Time
+	UpdatedAt time.Time
 }
